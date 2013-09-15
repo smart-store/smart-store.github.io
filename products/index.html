@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Smart Store - Produits</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="Description" content="Smart Store, c'est une boutique purement dédiée à la découverte ! Venez y tester des produits de marques innovantes, originales et trendy." />
+        <meta name="copyright" content="Smart Store - toute reproduction ou utilisation d’un contenu de ce site sans l’accord prealable de smart store est interdit." />
+        <link rel="stylesheet" type="text/css" media="screen" href="/public/stylesheets/main.css?v=15" />
+        <link rel="stylesheet" type="text/css" href="/public/stylesheets/vader/jquery-ui-1.8.5.custom.css" charset="utf-8" ></link>
+        <link rel="stylesheet" type="text/css" href="/public/stylesheets/jquery.autocomplete.css" charset="utf-8" ></link>
+            <link rel="stylesheet" type="text/css" href="/public/stylesheets/nivo-slider.css" charset="utf-8" ></link>
+        <style>
+    #wrapper {
+      background: black url(/public/data/images/background/background_1340126151941.jpg) no-repeat center top;
+    }
+    </style>
+        <!--[if IE 7]>
+        <link rel="stylesheet" type="text/css" href="/public/stylesheets/ie7.css" charset="utf-8" ></link>
+        <![endif]-->
+        <!--[if IE 6]>
+        <link rel="stylesheet" type="text/css" href="/public/stylesheets/ie6.css" charset="utf-8" ></link>
+        <![endif]-->
+        <link rel="shortcut icon" type="image/png" href="/public/images/favicon.png" />
+        <script src="/public/javascripts/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+        <!--[if IE]>
+        <script src="/public/javascripts/ie_hacks.js" type="text/javascript" charset="utf-8"></script>
+        <![endif]-->
+        <script type="text/javascript" language="javascript"  src="/public/javascripts/swfobject/swfobject.js"></script>
+        <script type="text/javascript" language="javascript"  src="/public/javascripts/preloadImages.js"></script>
+        <script type="text/javascript" language="javascript"  src="/public/javascripts/jquery.autocomplete.min.js"></script>
+        <script type="text/javascript" language="javascript"  src="/public/javascripts/jquery-ui-1.8.5.custom.min.js"></script>
+        <script type="text/javascript" language="javascript"  src="/public/javascripts/jquery.ui.datepicker-fr.js"></script>
+        <script type="text/javascript" language="javascript"  src="/public/javascripts/smartstore/main.js"></script>
+            <script type="text/javascript" language="javascript"  src="/public/javascripts/jquery.nivo.slider.pack.js"></script>
+    <script type="text/javascript" language="javascript"  src="/public/javascripts/jquery-ui-1.8.5.custom.min.js"></script>
+    <script type="text/javascript">
+      $.preLoadImages('/public/images/smart_store_header.png','/public/images/pub_place.png','/public/images/map.jpg','/public/images/metro_12.png','/public/images/rer_a.png','/public/images/keep.gif','/public/images/smart_store_logo.png','/public/images/products/ambiguous.png','/public/images/headphone.png','/public/images/goodfood.png','/public/images/come_on_board.png','/public/images/nav_icon_current.png','/public/images/nav_icon.png','/public/images/twice.png','/public/images/lettericon.gif','/public/images/twittericon.gif','/public/images/fbicon.gif','/public/images/heart.png');
+      $(window).load(function(){
+        var openloginbox = $('#openloginbox');
+        $(document).click(function(e){
+          var target = $(e.target);
+          if(target.is('#openloginbox .connect')) {
+            if(!openloginbox.hasClass('opened')) {
+              openloginbox.addClass('opened');
+              $('input[name=login]', openloginbox).focus();
+            }
+            else
+              openloginbox.removeClass('opened');
+            return false;
+          }
+          else if(openloginbox.hasClass('opened') && target.parents('#openloginbox').size()==0)
+            openloginbox.removeClass('opened');
+        });
+      });
+    </script>
+      <script type="text/javascript" language="javascript"  src="/public/javascripts/jquery.ba-hashchange.min.js"></script>
+    </head>
+    <body>
+      
+
+    <div id="wrapper">
+      <div id="main">
+        <header>
+          <a href="/" style="display: block; z-index: 10; position: relative; width: 960px; height: 194px; cursor: pointer">
+          <object type="application/x-shockwave-flash" wmode="transparent" data="/public/flash/header.swf" width="960" height="194">
+            <param name="movie" value="/public/flash/header.swf" />
+            <img src="/public/images/smart_store_header.png" alt="" />
+          </object>
+        </a>
+        </header>
+        <nav>
+          <ul>
+                        <li>
+    <a class="navlink" href="/">Home</a>
+    </li>            <li>
+    <a class="navlink" href="/about">Say what ?</a>
+    </li>            <li>
+      <span class="navlink">Produits</span>
+  </li>            <li>
+    <a class="navlink" href="/360">Visite 360&deg;</a>
+    </li>
+                      </ul>
+        </nav>
+        <div id="contentContainer" class="fullWidth">
+                    <div id="content" class="fullWidth">
+            
+
+
+  <div id="loadingProducts">
+    <h1>Chargement...</h1>
+    <div class="infos">
+      <div class="progressBar"></div>
+      <div class="percentContainer"><span class="percent">0</span>%</div>
+    </div>
+  </div>
+  
+  <div id="products">
+    <p class="descr">Ci-dessous tous les produits que vous pouvez découvrir dans notre boutique.</p>
+    <div class="sliderContainer">
+      <div class="navigation">
+                <h3><a href="javascript:;">Carte Blanche</a></h3>
+        <div>
+          <ul>
+                        <li class="product productTitle"><a class="productSelect" href="#574">Am&eacute;na&iuml;de</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#502">Omnisens</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#514">The Scent of Departure</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#467">Voulez-Vous...</a></li>
+                      </ul>
+        </div>
+                <h3><a href="javascript:;">Beaut&eacute;</a></h3>
+        <div>
+          <ul>
+                        <li class="product productTitle"><a class="productSelect" href="#398">agn&egrave;s b.</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#558">Akane</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#572">Karethic</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#586">La Soci&eacute;t&eacute; Parisienne de Savons</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#451">Lull Paris</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#406">Nickel</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#570">Olience Cosmetics</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#144">Pomarium</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#342">Shiseido</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#477">The Different Company</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#434">Weleda </a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#386">World Wild Men</a></li>
+                      </ul>
+        </div>
+                <h3><a href="javascript:;">Food</a></h3>
+        <div>
+          <ul>
+                        <li class="product productTitle"><a class="productSelect" href="#554">Alcala Oliva </a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#427">Alessandro Biagini</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#537">Casual Fruit</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#602">Erba Dolce Stevia Premium</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#422">Gingerlove</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#545">In/Fusion</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#559">Nu</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#600">Tea For Me</a></li>
+                      </ul>
+        </div>
+                <h3><a href="javascript:;">Cr&eacute;ation</a></h3>
+        <div>
+          <ul>
+                        <li class="product productTitle"><a class="productSelect" href="#541">Ces Messieurs</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#387">Deeself</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#294">Dyson</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#441">Florette Paquerette</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#388">Fuck Art &amp; Kiss</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#604">Holster Belt</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#408">La pieuvre &agrave; lunettes</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#269">Mad in love</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#447">Moi aussi</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#503">NUBI</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#500">Original Ta&iuml;o</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#122">Parrot</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#136">Popup</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#444">T-Shirt Noir</a></li>
+                        <li class="product productTitle"><a class="productSelect" href="#540">Vachette _ i-Motion</a></li>
+                      </ul>
+        </div>
+              </div>
+      <div class="detail">
+        <ul>
+                    <li id="product_398" class="product">
+            <img src="/public/data/images/products/gallery/photo_398.png" />
+                        <h2>Who ?</h2>
+            <p>agnès b. est une marque de vêtements et de cosmétiques lancée par la créatrice de mode Agnès Troublé. Pour la petite histoire, le « b. » de la marque provient de Christian Bourgois, l'ex-mari d'Agnès Troublé.</p>
+                                    <h2>What ?</h2>
+            <p>Véritable continuité de ses créations, Agnès b. a imaginé une gamme de soins pour les hommes : une crème de rasage impeccable, un roll-on anti-cernes effet froid, un gel effet bonne mine progressif, un stick lèvres hydra-réparateur 8h ainsi qu'un fluide visage hydra-énergisant 24h (disponible en échantillons!).
+<br/>Dopé au complexe exclusif 3G (Guarana-Ginseng-Gingembre), ce fluide énergétique recharge chaque jour les batteries de votre peau.</p>
+                                    <h2>Where ?</h2>
+            <p>Bercy - Cour Saint Emilion 75012 Paris / 3 rue du Jour 75001 Paris / 6 rue du Vieux Colombier 75006 Paris / 1 rue Dieu 75010 Paris </p>
+                                    <p class="commercialLink"><a href="https://europe.agnesb.com" target="_blank">https://europe.agnesb.com</a></p>
+                      </li>
+                    <li id="product_558" class="product">
+            <img src="/public/data/images/products/gallery/photo_558.png" />
+                        <h2>Who ?</h2>
+            <p>A l’origine il y a une pomme rouge aux propriétés extraordinaires. À l’origine il y a une femme qui vit en ville, qui vit la ville. Akane concentre les propriétés anti-oxydantes de la pomme et des feuilles du pommier Akane en une gamme de soins bio adaptés à la vie urbaine. Un quartier de nature à emporter au cœur de la ville. Une fragrance de sieste sous le pommier, comme une parenthèse enchantée. Des soins frais, fondants, qui enveloppent la peau d’un cocon protecteur. </p>
+                                    <h2>What ?</h2>
+            <p>Des formats nomades, qui tiennent au creux de la main, se glissent dans votre sac à main… Crème Fondante Hydratante : Sa texture unique fond sur la peau pour un confort et une fraîcheur immédiate // Crème Soyeuse anti-rides : Sa formule stimule le renouvellement cellulaire et protège la peau des agressions extérieures pour une action anti-rides durable // Masque Cocon Nocturne : Sa texture gel fraîche agit comme un cocon protecteur. Sa formule hydrate intensément les peaux les plus assoiffées et leur redonne tout leur éclat (à appliquer avant de se coucher, et à rincer le matin).</p>
+                                    <h2>Where ?</h2>
+            <p>E-boutique sur akane-skincare.com // moncorner.bio/com // e-shop JolieBox http://joliebox.com/boutique/all //  Beauty Monop Abbesses - la Défense - Oberkampf // Boutique Akane 22 rue Durantin, 18è.</p>
+                                    <p class="commercialLink"><a href="http://akane-skincare.com/" target="_blank">http://akane-skincare.com/</a></p>
+                      </li>
+                    <li id="product_554" class="product">
+            <img src="/public/data/images/products/gallery/photo_554.png" />
+                        <h2>Who ?</h2>
+            <p>Alcala Oliva est une entreprise familiale qui produit de l'huile d'olive dans la province de Jaen, en Andalousie. 66 millions d'oliviers y poussent. Notre philosophie est d'innover, notamment en terme de packaging.</p>
+                                    <h2>What ?</h2>
+            <p>Mini Oliva s'inscrit dans cette démarche d'innovation, en proposant de l'huile sous la forme intelligente et élégante d'une olive. A la fois pratique, hygiénique et unique. Mini Oliva a d'ailleurs gagné le "SIAL Innovation Award" parmi 1002 produits.</p>
+                                    <h2>Where ?</h2>
+            <p>En test chez Smart Store uniquement.</p>
+                                    <p class="commercialLink"><a href="http://www.alcalaoliva.com/" target="_blank">http://www.alcalaoliva.com/</a></p>
+                      </li>
+                    <li id="product_427" class="product">
+            <img src="/public/data/images/products/gallery/photo_427.png" />
+                        <h2>Who ?</h2>
+            <p>Alessandro Biagini, producteur artisanal italien.</p>
+                                    <h2>What ?</h2>
+            <p>La famille Biagini, originaire de Modena (Italie), produit, depuis 3 générations et dans la plus fine tradition, du vinaigre balsamique et de l'huile d'olive extra vierge.
+<br/>Du (très) haut de gamme à goûter sur place chez nous.</p>
+                                    <h2>Where ?</h2>
+            <p>En vente exclusivement chez Smart Store</p>
+                                    <p class="commercialLink"><a href="http://www.abfinefoods.com" target="_blank">http://www.abfinefoods.com</a></p>
+                      </li>
+                    <li id="product_574" class="product">
+            <img src="/public/data/images/products/gallery/photo_574.png" />
+                        <h2>Who ?</h2>
+            <p>Aménaïde est née un jour de crise capillaire,
+<br/>un jour où je ne supportais plus mes cheveux abîmés, ternes, secs, cassants.
+<br/>Ce matin là, sans réfléchir, j’ai saisi d’une main une paire de ciseaux, de l’autre une mèche de cheveux, et je suis passée à l’acte : j’ai tout coupé. Amis et famille ont testé les fruits de ma nouvelle passion : après un diagnostic précis de l’état de leur chevelure, je leur prescrivais un protocole sur-mesure avec mes produits maison. Amusés, impressionnés par les résultats, ils m’ont rapidement encouragée à lancer ma gamme capillaire et à faire connaître mes rituels de soin.</p>
+                                    <h2>What ?</h2>
+            <p>Gommage Bouleversant : Constellé de grains de sucre de canne, de poudre d’amande et de cannelle dans un bain d’huile de Palma Christi, ce gommage gourmand élimine en un seul geste cellules mortes, sébum et résidus de produits coiffants. Les cheveux gagnent en vitalité, en volume /// Shampooing bichonnant : La texture ultra-crémeuse de ce shampooing en fait l’allié indispensable des cheveux fragilisés. Son secret : 10% de miel couplé à de l’aloe vera pour la nutrition et la nutrition, de la cannelle pour le tonus, de l’huile d’amande douce pour la protection et la brillance. Les cheveux retrouvent pep’s, beauté et douceur au toucher /// Synergie de miel, aloe vera, cannelle, huiles de jojoba et de Palma Christi, cette crème fondante nourrit, gaine et protège la fibre fragilisée, sans l’alourdir. Multifonctions, elle s’utilise en crème de jour, en soin pour les fourches ou en masque de soin intensif. 
+<br/>CODE PROMO -40% : SMARTSTORE</p>
+                                    <h2>Where ?</h2>
+            <p>E boutique : http://www.amenaide.com/Boutique-Amenaide//index.php?</p>
+                                    <p class="commercialLink"><a href="http://www.amenaide.com/" target="_blank">http://www.amenaide.com/</a></p>
+                      </li>
+                    <li id="product_537" class="product">
+            <img src="/public/data/images/products/gallery/photo_537.png" />
+                        <h2>Who ?</h2>
+            <p>Casual Fruit est une société innovante dont la vision est que Le Snacking peut être à la fois sain, gourmand, pratique et nomade. </p>
+                                    <h2>What ?</h2>
+            <p>Le moment croque-fruit
+<br/>Le nouveau SNACK croquant avec tous les bienfaits des FRUITS:
+<br/>- Sans huile
+<br/>- Sans sucres ajoutés
+<br/>- Sans conservateurs
+<br/>- Sans colorants
+<br/>- Sans gluten</p>
+                                    <h2>Where ?</h2>
+            <p>www.casualfruit.com</p>
+                                    <p class="commercialLink"><a href="http://www.casualfruit.com/" target="_blank">http://www.casualfruit.com/</a></p>
+                      </li>
+                    <li id="product_541" class="product">
+            <img src="/public/data/images/products/gallery/photo_541.png" />
+                        <h2>Who ?</h2>
+            <p>Ces-messieurs, LA marque qui démocratise l’accessoire masculin en tricot
+<br/>A travers cette collection, découvrez un savoir faire de qualité associé à un regard décalé et pointu de la mode. 
+<br/>Un univers étonnant et complice.</p>
+                                    <h2>What ?</h2>
+            <p>►  Technique du tricot : créations variées et originales
+<br/>►  100% laine : doux et confortable 
+<br/>►  Fait Main : produit qualitatif et soigné 
+<br/>►  Séries limitées : modèles uniques et exclusifs</p>
+                                    <h2>Where ?</h2>
+            <p>Au Smart Store</p>
+                                    <p class="commercialLink"><a href="http://www.ces-messieurs.com/" target="_blank">http://www.ces-messieurs.com/</a></p>
+                      </li>
+                    <li id="product_387" class="product">
+            <img src="/public/data/images/products/gallery/photo_387.png" />
+                        <h2>Who ?</h2>
+            <p>DEESELF est un label de créateurs différents & indépendants. Nous encourageons tous graphismes éclectiques dans un style subtil & épuré sans nous limiter à un univers spécifique.
+<br/></p>
+                                    <h2>What ?</h2>
+            <p>Malcolm X / BTG - Insectes / Marion Martigny - Plumes / Marion Martigny- Pauvre Chou / Le Loup
+<br/>
+<br/>Disponibles en homme & femme /// Taille S, M & L
+<br/></p>
+                                    <h2>Where ?</h2>
+            <p>On line : shop.deeself.com /// Smart Store</p>
+                                    <p class="commercialLink"><a href="http://deeself.com/home" target="_blank">http://deeself.com/home</a></p>
+                      </li>
+                    <li id="product_294" class="product">
+            <img src="/public/data/images/products/gallery/photo_294.png" />
+                        <h2>Who ?</h2>
+            <p>Dyson est une société d’électroménager design britannique, fondée et présidée par James Dyson. Cette société est devenue célèbre grâce à ses aspirateurs à séparation cyclonique, sans sac et sans perte d’aspiration et ses séche-mains.</p>
+                                    <h2>What ?</h2>
+            <p>Le fonctionnement du ventilateur Dyson Air Multiplier™ est très différent de celui des ventilateurs conventionnels. Il fonctionne grâce à la technologie Air Multiplier™ : l'air environnant est aspiré dans le flux d'air, amplifiant ainsi son volume par 15.</p>
+                                    <h2>Where ?</h2>
+            <p>BHV / Conforama / Galeries Lafayette / Colette /// www.dyson.fr</p>
+                                    <p class="commercialLink"><a href="http://www.dyson.fr/" target="_blank">http://www.dyson.fr/</a></p>
+                      </li>
+                    <li id="product_602" class="product">
+            <img src="/public/data/images/products/gallery/photo_602.png" />
+                        <h2>Who ?</h2>
+            <p>Le café, le chocolat, le maïs, les haricots, la tomate, la pomme de terre nous sont devenus indispensables au quotidien. Leur point commun ? Ils sont tous originaires d’Amérique Latine. L’objectif d’ETHNOLATIN est de vous faire (re)découvrir les bénéfices et avantages d’autres produits sains et naturels de ce continent. Nous souhaitons ainsi améliorer votre bien-être tout en contribuant à améliorer les conditions de vie des paysans latino-américains, conformément aux valeurs qui sont les nôtres : solidarité, convivialité et éthique.</p>
+                                    <h2>What ?</h2>
+            <p>Erba Dolce est un édulcorant à la Stevia premium d’Amérique du Sud, faible en calories (85% de moins que le sucre), d’origine 100% naturelle et qui ne contient ni sucre ni produits de synthèse. Il vous accompagnera dans votre régime minceur, convient aux diabétiques et aide à éviter les caries dentaires… Erba Dolce est idéal pour adoucir le capuccino, le thé, les smoothies, le fromage blanc, les gâteaux, etc. Il résiste à des températures de cuisson supérieures à 250°C. Le contenu d’un sachet d’Erba Dolce en poudre (800mg) adoucit autant qu’un morceau ou qu’une cuillère à café de sucre. Erba Dolce existe aussi en pastilles « zéro calories ».</p>
+                                    <h2>Where ?</h2>
+            <p>http://boutique.ethnolatin.com</p>
+                                    <p class="commercialLink"><a href="http://boutique.ethnolatin.com" target="_blank">http://boutique.ethnolatin.com</a></p>
+                      </li>
+                    <li id="product_441" class="product">
+            <img src="/public/data/images/products/gallery/photo_441.png" />
+                        <h2>Who ?</h2>
+            <p>Flora,jeune styliste parisienne de 24 ans fait partie de cette nouvelle génération de stylistes qui s’inspire de la mode «street wear » et des codes des années 80 pour les remettre au goût du jour tout en les mélangeant à ses influences… 
+<br/>C’est grâce à sa marque Florette Paquerette qu’elle réussi ce savant mélange déjanté.</p>
+                                    <h2>What ?</h2>
+            <p>Top "Street Potion" : Coupe décontractée, encolure dégagée, dos nageur échancré, unisexe.
+<br/>Top "Wolf" : Originalité de ce top grâce à son identité graphique, l'architecture de sa coupe et ses manches à petits carreaux.</p>
+                                    <h2>Where ?</h2>
+            <p>OUT, 9 rue tiquetonne 75002, Paris /// MyFashionLab, 12 rue dulong 75017, Paris </p>
+                                    <p class="commercialLink"><a href="http://florettepaquerette.com/" target="_blank">http://florettepaquerette.com/</a></p>
+                      </li>
+                    <li id="product_388" class="product">
+            <img src="/public/data/images/products/gallery/photo_388.png" />
+                        <h2>Who ?</h2>
+            <p>Une nouvelle marque de tee shirt designée par l'artiste 'Aktarus'. Déjà en vente dans les meilleurs concept stores de Tokyo et Osaka, la marque a décidé de commencer son implantation en France en passant par Smart Store.</p>
+                                    <h2>What ?</h2>
+            <p>Le concept de la marque repose sur le détournement d'oeuvres d'arts très connues, par l'ajout d'éléments de la culture pop des années 80 et 90. L'impertinence et les clins d'oeil qui évoqueront certainement de bons souvenirs à tous les héritiers de ces années riches en symboles participent à une "mise à jour" définitivement pleine de fraîcheur de ces grands chefs d'oeuvre classiques. </p>
+                                    <h2>Where ?</h2>
+            <p>Au Smart Store / Concept store 'Démocratie' (14 bd Saint Michel Paris 6ème) </p>
+                                    <p class="commercialLink"><a href="https://www.fuckartandkiss.com" target="_blank">https://www.fuckartandkiss.com</a></p>
+                      </li>
+                    <li id="product_422" class="product">
+            <img src="/public/data/images/products/gallery/photo_422.png" />
+                        <h2>Who ?</h2>
+            <p>En 2006, le GingerLove du restaurant végétarien Lombardia – variante du thé au gingembre artisanal – déclencha par hasard un engouement mondial. Une journaliste du Wall Street Journal avait apprécié ce breuvage lors d’un séjour à Anvers et estimait que GingerLove méritait une mention honorable dans la liste des « Must do in Belgium ». </p>
+                                    <h2>What ?</h2>
+            <p>GingerLove est un mix délicieux d’agrumes, gingembre et d’herbes. Sans caféine et recouvert  d’une onctueuse couche de mousse fruitée. </p>
+                                    <h2>Where ?</h2>
+            <p>Rosa Bonheur /// Alto Café</p>
+                                    <p class="commercialLink"><a href="http://www.gingerlove.be/fr" target="_blank">http://www.gingerlove.be/fr</a></p>
+                      </li>
+                    <li id="product_604" class="product">
+            <img src="/public/data/images/products/gallery/photo_604.png" />
+                        <h2>Who ?</h2>
+            <p>Holster Belt Europe a pris naissance à Paris au cours de l’année 2011. S’inscrivant dans la continuité du mouvement trendy urbain et forte du savoir faire français dans le domaine de la maroquinerie, la marque réinvente un accessoire culte, la sacoche pour hommes. Fruit d’une collaboration privilégiée avec des grandes maisons de maroquinerie, Holster Belt sort au printemps 2012 sa toute première pièce dédiée au Nomade Urbain du XXI° siècle.</p>
+                                    <h2>What ?</h2>
+            <p>Reprenant l’accessoire indispensable du mythique Far West, Holster Belt ressuscite l’holster traditionnel en lui donnant une nouvelle vocation: celle de contenir les effets personnels du citadin.
+<br/>
+<br/>Par son originalité, sa ligne de coupe exemplaire, son alliage cuir/toile de haute qualité et son mécanisme de rotation ingénieux, l’accessoire devient l’incontournable de l‘homme moderne.</p>
+                                    <h2>Where ?</h2>
+            <p>Smart Store // Killiwatch</p>
+                                    <p class="commercialLink"><a href="http://www.holsterbelt.fr/" target="_blank">http://www.holsterbelt.fr/</a></p>
+                      </li>
+                    <li id="product_545" class="product">
+            <img src="/public/data/images/products/gallery/photo_545.png" />
+                        <h2>Who ?</h2>
+            <p>In/Fusion invente une nouvelle génération de boissons parfaitement en phase avec les nouveaux modes de vie urbains : nomades, hédonistes et en fusion avec la nature. Enfin une boisson 100% bio qui a du goût et du style ! In/Fusion revisite la consommation de la tisane, breuvage naturel, ancestral et universel, afin de l’adapter aux attentes des Citadins qui réconcilient les contraires pour définir leurs propres règles : le beau et le bon, le corps et l’esprit, la ville et la nature…</p>
+                                    <h2>What ?</h2>
+            <p>Glacée, prête-à-boire, cette tisane « nouvelle vague » made in France est une véritable déferlante de bien-être et de fraicheur. In/Fusion nous fait visiter les villes pionnières de ce nouvel art de vivre détendu et responsable en leur associant à chacune un lifestyle : romantisme & sérénité à Paris, fête & énergie à Londres, expérimentation & détox à Berlin, culte du corps & slim à Los Angeles. 
+<br/>PARIS (Pêche/Verveine/Citron) - L.A. (Ananas/Gingembre/Romarin) - LONDRES (Pomme/Poire/Bardane) - BERLIN (Grenade/Cassis)</p>
+                                    <h2>Where ?</h2>
+            <p>La Grande Epicerie / Colette / Publicis Drugstore / Colette / Monop'</p>
+                                    <p class="commercialLink"><a href="http://www.infusion-company.com/tisane-bio.html" target="_blank">http://www.infusion-company.com/tisane-bio.html</a></p>
+                      </li>
+                    <li id="product_572" class="product">
+            <img src="/public/data/images/products/gallery/photo_572.png" />
+                        <h2>Who ?</h2>
+            <p>Depuis 2005, Karethic s’est donné pour mission de faire connaître, au-delà des produits « miracles » au karité contés de mille et une façons dans les médias, le véritable beurre de karité: Le baume sacré des femmes africaines, le beurre de karité Grand cru d'Afrique, de première qualité, vierge (non raffiné). Un soin sacré fascinant, symbole de la spiritualité africaine.Un don de la nature méconnu du consommateur car trop souvent altéré par raffinage . Un patrimoine culturel porté de génération en génération par des milliers de productrices en Afrique.</p>
+                                    <h2>What ?</h2>
+            <p>Baume à Lèvres au karité : Pur sans eau, le baume à lèvres Karethic contient du beurre de karité non raffiné (nourrit), de l’huile de ximenia (assouplit) de l’huile d’argan (régénère) et de la stevia pour des lèvres douces et gourmandes /// Huile de soin : Au contact de la chaleur, la bougie de massage au beurre de karité enrichie au beurre de mangue se transforme en une huile de beauté et bien-être tiède (non brûlante car sans paraffine ou cire artificielle) au parfum sensuel qui nourrit, adoucit et laisse la peau délicatement parfumée.</p>
+                                    <h2>Where ?</h2>
+            <p>En ligne : Parafemina/le Monde du Bio/Claire Naturel/Bio en Vie /// Biocoop Paris 12è - Bio Saint Hilaire Paris 5è</p>
+                                    <p class="commercialLink"><a href="http://karethic.com/" target="_blank">http://karethic.com/</a></p>
+                      </li>
+                    <li id="product_408" class="product">
+            <img src="/public/data/images/products/gallery/photo_408.png" />
+                        <h2>Who ?</h2>
+            <p>La Pieuvre à lunettes est née à l’été 2011 d’une phrase entendue régulièrement : « T’aurais pas un câble iPhone sur toi ? Je n’ai plus de batterie ». Parti de cette idée, Guillaume Leheuzey crée La Pieuvre à lunettes, avec des tentacules référence aux câbles et portant les mêmes lunettes Geek que son fondateur !
+<br/></p>
+                                    <h2>What ?</h2>
+            <p>La pieuvre à lunettes propose une gamme de câbles pratiques & colorés pour iPhone, iPad et iPod. Ces câbles inédits en série limitée sont déclinés en 4 couleurs : Orange Crâbe, Vert Tortue, Rose Crevette, Bleu Dauphin. D'une longueur de 20cm seulement, ils permettent de recharger son iPhone sans s'encombrer d'un long câble blanc salissant.
+<br/></p>
+                                    <h2>Where ?</h2>
+            <p>Pa Design /// Smart Store</p>
+                                    <p class="commercialLink"><a href="http://www.lapieuvrealunettes.com/" target="_blank">http://www.lapieuvrealunettes.com/</a></p>
+                      </li>
+                    <li id="product_586" class="product">
+            <img src="/public/data/images/products/gallery/photo_586.png" />
+                        <h2>Who ?</h2>
+            <p>Notre histoire est celle de la passion partagée pour les cosmétiques de luxe et la fascination de la période art-déco.  Nos produits sont sous l’égide de trois pharmaciens fondateurs vous assurant ainsi des cosmétiques d’une grande qualité.
+<br/>Notre histoire plonge ses racines bien avant nous et s’inscrit bien au delà…</p>
+                                    <h2>What ?</h2>
+            <p>Savons invités 50gr : 
+<br/>
+<br/>Fabriqués dans la pure tradition française, nos savons sont sans paraben et disposent d'une concentration élevée en parfum décuplant ainsi les sens et les souvenirs. Ces parfums sont issus d'un parfumeur de Grasse.</p>
+                                    <h2>Where ?</h2>
+            <p>91 rue du Faubourg Saint Honoré (75008 Paris) // www.lasocieteparisiennedesavons.com</p>
+                                    <p class="commercialLink"><a href="http://www.lasocieteparisiennedesavons.com/fr/" target="_blank">http://www.lasocieteparisiennedesavons.com/fr/</a></p>
+                      </li>
+                    <li id="product_451" class="product">
+            <img src="/public/data/images/products/gallery/photo_451.png" />
+                        <h2>Who ?</h2>
+            <p>La marque LULL, qui signifie « sphère de plénitude » en anglais, est la 1ère gamme globale de Mood Cosmétiques. Les soins LULL sont naturels et exclusivement composés d’ingrédients  de très grande qualité. Le principe d'action des 'Mood Cosmétiques' allie une stimulation locale de la peau grâce à des actifs spécifiques à une stimulation olfactive et sensorielle du mental par des fragrances d'aromathérapie.</p>
+                                    <h2>What ?</h2>
+            <p>Les crèmes régénèrantes LULL apportent à la peau éclat, hydratation, jeunesse et matification. Votre peau est lumineuse, rebondie avec un fini mat parfait. Choisissez votre soin en fonction de vos besoins. Besoin de vitalité? Energie Lumineuse // De déstresser? Calme Intense // De sensualité? Eclat Sensuel // D’être euphorisé(e)? Instants Sublimes // De cocooner? Eveil Radieux
+<br/></p>
+                                    <h2>Where ?</h2>
+            <p>E-boutique on line /// Le Cabinet Confidentiel /// RS Esthétique</p>
+                                    <p class="commercialLink"><a href="http://www.lull-paris.com/" target="_blank">http://www.lull-paris.com/</a></p>
+                      </li>
+                    <li id="product_269" class="product">
+            <img src="/public/data/images/products/gallery/photo_269.png" />
+                        <h2>Who ?</h2>
+            <p>Pièce unique.
+<br/>Mad in love est une ligne de bijoux bohème-rock pour femmes, hommes et enfants. La créatrice parisienne vous propose une série mais peu également créer pour vous une pièce unique. </p>
+                                    <h2>What ?</h2>
+            <p>Belles matières.
+<br/>Chaque bijou Mad on love est minutieusement monté à la main par la créatrice dans son atelier parisien. 
+<br/>Les matières utilisées sont : le laiton, garanti sans nickel pour les allergies ; le verre ; la nacre ; la poudre de pierre ; le zinc.</p>
+                                    <h2>Where ?</h2>
+            <p>Principaux points de distribution:
+<br/>Commandez via le site internet pour une personnalisation ou un RDV privé à domicile.</p>
+                                    <p class="commercialLink"><a href="http://madinlove.fr/" target="_blank">http://madinlove.fr/</a></p>
+                      </li>
+                    <li id="product_447" class="product">
+            <img src="/public/data/images/products/gallery/photo_447.png" />
+                        <h2>Who ?</h2>
+            <p>La marque « MOI AUSSI », est une marque française. Elle a été conçue par 2 amis, rencontrés au cours de leurs études : Julien & Romain. 
+<br/>« MOI AUSSI »  joue à la fois sur la nostalgie de nos années passées, et sur le quotidien des gens. </p>
+                                    <h2>What ?</h2>
+            <p>La marque MOI AUSSI est un concept décalé qui traite le passé avec humour.Les visuels de la marque se déclineront en clothing & accessoires. 
+<br/>
+<br/>De nombreuses surprises sont à venir tout le long de l’année.
+<br/></p>
+                                    <h2>Where ?</h2>
+            <p>Bathroom Graffiti /// Parly 2 /// Très prochainement : Colette - Bon Marché</p>
+                                  </li>
+                    <li id="product_406" class="product">
+            <img src="/public/data/images/products/gallery/photo_406.png" />
+                        <h2>Who ?</h2>
+            <p>NICKEL a été créé en 1996 sur une idée simple : la beauté peut aussi être une affaire d’hommes ! Après des débuts en instituts, Nickel a investi les parfumeries et les grands magasins.  
+<br/>Nickel a ‘décoincé’ le soin pour hommes en développant toute une gamme de produits décalés aux formules hi-tech.
+<br/></p>
+                                    <h2>What ?</h2>
+            <p>- Electro Shock, l’energy drink pour la peau. Effet fraîcheur avant la fête, effet bonne mine au petit matin.
+<br/>- Green Boost, l’effet peeling version bio.  Lutte contre les signes de fatigue au quotidien. Pour hommes & femmes.
+<br/>- Le Grand Bluff Perfecteur, le logiciel de retouche de la peau. Fluide perfecteur aux effets matifiants et unifiants.
+<br/></p>
+                                    <h2>Where ?</h2>
+            <p>Sephora /// Marionnaud /// Nocibé /// Comptoir de l’Homme /// Men Corner
+<br/></p>
+                                    <p class="commercialLink"><a href="http://www.nickel.fr/" target="_blank">http://www.nickel.fr/</a></p>
+                      </li>
+                    <li id="product_559" class="product">
+            <img src="/public/data/images/products/gallery/photo_559.png" />
+                        <h2>Who ?</h2>
+            <p>Nu, comme le fruit nu - Nu, comme nutrition - Nu, du fruit et c’est tout. 
+<br/>NU, des délicieux mélanges de jus de fruits, riches en vitamines et fibres naturelles, sans aucun additif.</p>
+                                    <h2>What ?</h2>
+            <p>Myrtille-Framboise & Mangue-Orange-Passion. 100% de fruits mixés</p>
+                                    <h2>Where ?</h2>
+            <p>feliz.fr</p>
+                                    <p class="commercialLink"><a href="http://www.nusmoothiesuae.com/" target="_blank">http://www.nusmoothiesuae.com/</a></p>
+                      </li>
+                    <li id="product_503" class="product">
+            <img src="/public/data/images/products/gallery/photo_503.png" />
+                        <h2>Who ?</h2>
+            <p>NUBI tente d'explorer le potentiel créatif des nouvelles technologies en faisant collaborer designers, ingénieurs et artistes.</p>
+                                    <h2>What ?</h2>
+            <p>Rencontre de la bijouterie, des nouvelles technologies et des arts graphiques, les sautoirs NUBI réinventent le bijou à l'heure de la révolution numérique.</p>
+                                    <h2>Where ?</h2>
+            <p>- La Gaîté Lyrique 
+<br/>- http://www.nubi.fr</p>
+                                    <p class="commercialLink"><a href="http://www.nubi.fr" target="_blank">http://www.nubi.fr</a></p>
+                      </li>
+                    <li id="product_570" class="product">
+            <img src="/public/data/images/products/gallery/photo_570.png" />
+                        <h2>Who ?</h2>
+            <p>Olience…une marque qui a du cœur!!! Elle vient de créer le casting des créateurs, un site de lancement pour jeunes talents!!!</p>
+                                    <h2>What ?</h2>
+            <p>Des cosmétiques labélisés cosmébio pour le respect de notre environnement, advance bio pour un bio différent, innovant, issu des dernières recherches de la bio-technologie, pour des résultats visibles, gorgé d’huiles essentielles pour des odeurs gourmandes, des textures soyeuses… notre meilleure publicité?  Votre satisfaction…
+<br/>Le but? Vous offrir des cosmétiques hauts de gamme à un tarif milieu de gamme. Le mariage entre efficacité, plaisir et accessibilité…</p>
+                                    <h2>Where ?</h2>
+            <p>Dans vos instituts de beautés et sur internet.</p>
+                                    <p class="commercialLink"><a href="http://www.olience-cosmetics.fr/" target="_blank">http://www.olience-cosmetics.fr/</a></p>
+                      </li>
+                    <li id="product_502" class="product">
+            <img src="/public/data/images/products/gallery/photo_502.png" />
+                        <h2>Who ?</h2>
+            <p>Omnisens se reconnaît dans le naturel, le vrai, le luxe dans la simplicité...Une marque cosmétique 100% Spa qui vous emmène dans un univers contemporain et raffiné.
+<br/>Joëlle Guillemot, fondatrice d'Omnisens, puise son inspiration dans la poésie, la modernité, la recherche d'efficacité en privilégiant la nature et surtout en la respectant : "Le vrai luxe, c'est prendre le temps de vivre, (re)découvrir les richesses de la nature, écouter ses envies et vivre sainement"</p>
+                                    <h2>What ?</h2>
+            <p>'Reflets de Soie' : huile sèche exceptionnelle aux senteurs gourmandes et enveloppantes de fleur d’amandier et d’oranger.
+<br/>'Reflets de soie' repose sur un complexe aromatique exclusif de 5 huiles végétales, soigneusement sélectionnées pour leur qualité.
+<br/>Ce subtil mélange d’huile d’amande douce, de camélia, de noyau d’abricot et de noisette transforme immédiatement votre geste beauté en purs moments de plaisir et de bien-être.</p>
+                                    <h2>Where ?</h2>
+            <p>- Chez les partenaires spas & instituts de la marque Omnisens
+<br/>- Sur le site Internet : www.omnisensboutique.com
+<br/>>>> -50% de remise avec le code promo : SMARTSTORE</p>
+                                    <p class="commercialLink"><a href="http://www.omnisensboutique.com" target="_blank">http://www.omnisensboutique.com</a></p>
+                      </li>
+                    <li id="product_500" class="product">
+            <img src="/public/data/images/products/gallery/photo_500.png" />
+                        <h2>Who ?</h2>
+            <p>En 1995, Jérôme Risoli, directeur artistique et graphiste, passionné de design et de culture urbaine, créé un personnage qu’il baptise Taïo. Ce nom a pour signification « En avant, à l’attaque ». C’est au travers de la collaboration avec une artiste joaillière, qu’il développe une adaptation de ce personnage sur un premier support : le bijou. En parallèle une adaptation sur textile siglée Taïo voit le jour.</p>
+                                    <h2>What ?</h2>
+            <p>Une collection de bijoux en argent, fabriqués en France et en Italie, en éditions limitées et exclusives. Le logo Taïo se décline également sur une micro collection de textiles, made in France, Portugal et Italie. Le concept est de créer un univers autour de Taïo tout en développant des produits de qualité et ce, en privilégiant les collaborations avec des artistes et des marques confirmées.</p>
+                                    <h2>Where ?</h2>
+            <p>Smart Store Paris - Sur commande via mail: www.taiozlab.org / www.facebook.com/taio013</p>
+                                    <p class="commercialLink"><a href="http://www.taiozlab.org" target="_blank">http://www.taiozlab.org</a></p>
+                      </li>
+                    <li id="product_122" class="product">
+            <img src="/public/data/images/products/gallery/photo_122.png" />
+                        <h2>Who ?</h2>
+            <p>Parrot conçoit et développe des périphériques sans fil pour la téléphonie mobile. Parrot a lancé la collection Parrot By : des produits multimédia haut de gamme dessinés par des artistes de renom. </p>
+                                    <h2>What ?</h2>
+            <p>Zikmu : un design ultra moderne, une couleur d'un noir intense, et un son d'une puissance et d'une clarté spectaculaire. Designées par Philippe Starck, en exclu pour Parrot.</p>
+                                    <h2>Where ?</h2>
+            <p>BHV / Colette / Drugstore Publicis / Colette /// www.parrot.com</p>
+                                    <p class="commercialLink"><a href="http://www.parrot.com/" target="_blank">http://www.parrot.com/</a></p>
+                      </li>
+                    <li id="product_144" class="product">
+            <img src="/public/data/images/products/gallery/photo_144.png" />
+                        <h2>Who ?</h2>
+            <p>Concentrés en actifs naturels issus des fruits du Verger, les produits Pomarium offrent des textures innovantes, de haute qualité, respectant à la fois la peau et l'organisme tout en s'appuyant sur une démarche globale éco-consciente.</p>
+                                    <h2>What ?</h2>
+            <p>Crème Jeunesse Onctueuse gorgée d'actifs lissants, anti-rides et anti-âge, elle laisse la peau souple et confortable. Enrichie en pigments réflecteurs de lumière, elle contribue à redonner à la peau son éclat et illuminer le teint.
+<br/>
+<br/>Sérum Elixir Concentré, véritable bouclier anti-rides et anti-âge. Sa haute concentration en polyphénols, aux vertus antioxydantes, enrichie en actifs naturellement lissants aide la peau à lutter quotidiennement contre les agressions extérieures et prévient le vieillissement prématuré de la peau.</p>
+                                    <h2>Where ?</h2>
+            <p>BHV / Galeries Lafayette / Mademoiselle Bio (Paris 7) /// www.mondebio.com /  www.mysweetbio.fr / www.pomarium.fr</p>
+                                    <p class="commercialLink"><a href="http://www.pomarium.fr/" target="_blank">http://www.pomarium.fr/</a></p>
+                      </li>
+                    <li id="product_136" class="product">
+            <img src="/public/data/images/products/gallery/photo_136.png" />
+                        <h2>Who ?</h2>
+            <p>    Jeunes et audacieuses, les bougies parfumées Popup combinent design d'avant-garde, profonde exigence de qualité et beaucoup plus si affinités ! Véritables bijoux de savoir-faire et d'inventivité, elles allient élégance et extravagance, sont hautes en couleurs et font battre les cœurs. Popup, ou l'objet du désir qui fait durer le plaisir. Vous détenez une bougie Popup. Vous la chérissez. Elle brûle pour vous. Elle vous réserve peut-être l'éternité... </p>
+                                    <h2>What ?</h2>
+            <p>•  Fabrication artisanale française
+<br/>•  Mèche en coton / Cire 100% naturelle
+<br/>•  Ppackaging papier recyclable / Sans colle
+<br/>•  SMALL 32G - 10 HEURES / MEDIUM 190G - 60 HEURES</p>
+                                    <h2>Where ?</h2>
+            <p>Chez Smart Store / Fleux' (Paris 3) /// www.popup-paris.com</p>
+                                    <p class="commercialLink"><a href="http://www.popup-paris.com/" target="_blank">http://www.popup-paris.com/</a></p>
+                      </li>
+                    <li id="product_342" class="product">
+            <img src="/public/data/images/products/gallery/photo_342.png" />
+                        <h2>Who ?</h2>
+            <p>Fondée en 1872, SHISEIDO fête ses 140 ans! Pionnière en biotechnologie, riche d'environ mille chercheurs de par le monde, Shiseido développe des soins à la pointe de l'innovation. Shiseido a pour philosophie l’harmonie du corps et de l’esprit; l’alliance de l’orient et de l’occident, de l’art et de la science. Au-delà de la beauté, Shiseido a une valeur fondatrice: l’OMOTENASHI, qui signifie prendre soin de ses hôtes, être à leur service et écouter de tout son cœur.</p>
+                                    <h2>What ?</h2>
+            <p>LAQUE DE ROUGE: le vernis à lèvres par Shiseido, inspiré du savoir faire ancestral japonais autour de la laque.
+<br/>Avec Laque de Rouge, Shiseido pousse le raffinement à l’extrême ! 
+<br/>- Couleur intense, profonde 
+<br/>- Texture riche et onctueuse 
+<br/>- Ultra confortable, non collant 
+<br/>- Longue tenue.</p>
+                                    <h2>Where ?</h2>
+            <p>Grands Magasins / Sephora / Marionnaud / Nocibé // Boutiques en ligne: www.sephora.fr / www.marionnaud.fr / www.nocibe.fr
+<br/>
+<br/></p>
+                                    <p class="commercialLink"><a href="http://www.shiseido.fr/" target="_blank">http://www.shiseido.fr/</a></p>
+                      </li>
+                    <li id="product_444" class="product">
+            <img src="/public/data/images/products/gallery/photo_444.png" />
+                        <h2>Who ?</h2>
+            <p>Bien plus qu’un site de mode, Tshirtnoir c’est notre vision du style au Masculin, vous y trouverez de la mode mais pas que…</p>
+                                    <h2>What ?</h2>
+            <p>L'équipe de T-Shirt Noir vous présente sa sélection de créateurs. 4 marques à découvrir au Smart Store : Les Jardins Parisiens, EyesHeart, Orbite, One on One Brothers</p>
+                                    <h2>Where ?</h2>
+            <p>@ Smart Store</p>
+                                    <p class="commercialLink"><a href="http://www.tshirt-noir.com/" target="_blank">http://www.tshirt-noir.com/</a></p>
+                      </li>
+                    <li id="product_600" class="product">
+            <img src="/public/data/images/products/gallery/photo_600.png" />
+                        <h2>Who ?</h2>
+            <p>L'ambition de la société The Green & Blue Veda est d'offrir au monde occidental des produits et services :
+<br/>Inspirés des connaissances de l'Ayurveda, littéralement « science de la vie » : une médecine naturelle ancestrale à base de plantes, née en Inde et pratiquée depuis plus de 5000 ans ;
+<br/>Bons et naturels, respectueux de l'environnement ;
+<br/>Bénéfiques pour le corps et l'esprit, apportant bien-être au quotidien et style de vie équilibré pour une consommation ayant du sens.</p>
+                                    <h2>What ?</h2>
+            <p>Tea For Me
+<br/>> Clean up & Detox
+<br/>> Reboost & Go</p>
+                                    <h2>Where ?</h2>
+            <p>Auchan / Carrefour / Cojean / Colette / Grande Epicerie </p>
+                                    <p class="commercialLink"><a href="http://www.thegreenandblueveda.com/" target="_blank">http://www.thegreenandblueveda.com/</a></p>
+                      </li>
+                    <li id="product_477" class="product">
+            <img src="/public/data/images/products/gallery/photo_477.png" />
+                        <h2>Who ?</h2>
+            <p>The Different Company est la marque Française de Haute Parfumerie Contemporaine de référence qui célèbre le plaisir des sens et la beauté des sillages, en proposant des parfums d’exception restant accessibles, dans des flacons exclusifs au design épuré.</p>
+                                    <h2>What ?</h2>
+            <p>The Different Company, Haute Parfumerie Contemporaine
+<br/>
+<br/>
+<br/>Notre équipe créative, constituée des meilleurs nez et d’un directeur artistique de renom international, n’obéit qu’à une seule contrainte : retrouver le sens de l’exception. Utilisation des matières naturelles, accords uniques, fruits d’une réelle liberté créative, parfums plaisir, tous mixtes, pour que l’élégance soit portable sans contrainte au quotidien. </p>
+                                    <h2>Where ?</h2>
+            <p>Printemps Haussmann / Boutique The Different Company
+<br/>(10 Rue Ferdinand Duval 75004 Paris) / Parfumeries Indépendantes</p>
+                                    <p class="commercialLink"><a href="http://www.thedifferentcompany.com/" target="_blank">http://www.thedifferentcompany.com/</a></p>
+                      </li>
+                    <li id="product_514" class="product">
+            <img src="/public/data/images/products/gallery/photo_514.png" />
+                        <h2>Who ?</h2>
+            <p>The Scent of Departure donne aux villes mythiques
+<br/>leurs trois lettres de parfums.
+<br/>Crée par un duo de créateur – Gérald Ghislain globe-trotter et créateur d’Histoires de Parfums, ainsi
+<br/>que Magali Sénéquier, designer – The Scent of Departure lance un concept inédit, celui d’interpréter
+<br/>l’âme de villes emblématiques au travers du prisme de l’olfaction.</p>
+                                    <h2>What ?</h2>
+            <p>The Scent of Departure constitue une gamme de vingt parfums cristallisant en l’espace d’un flacon
+<br/>l’essence de villes emblématiques.
+<br/>Paris, Londres, Milan, Frankfort, Budapest, Viennes, Istanbul, Keflavik, Munich, Los Angeles, Miami,
+<br/>New York, Doha, Dubaï, Abu Dhabi, Singapour, Tokyo, Bali, Hongkong, Séoul… à la manière de ces
+<br/>collectionneurs amassant les fameuses étiquettes de leurs bagages comme autant de souvenirs,
+<br/>rassemblez les tous !</p>
+                                    <h2>Where ?</h2>
+            <p>Arty Dandy (1, rue de Furstemberg 75006) // www.thescentofdeparture.com / www.facebook.com/thescentofdeparture</p>
+                                    <p class="commercialLink"><a href="http://www.thescentofdeparture.com/" target="_blank">http://www.thescentofdeparture.com/</a></p>
+                      </li>
+                    <li id="product_540" class="product">
+            <img src="/public/data/images/products/gallery/photo_540.png" />
+                        <h2>Who ?</h2>
+            <p>Vachette, marque du groupe ASSA ABLOY, est le leader français des systèmes de sécurité et de la quincaillerie architecturale. Vachette offre au monde de la sécurité, des produits à forte valeur ajoutée alliant confort d’utilisation, design et sécurité.</p>
+                                    <h2>What ?</h2>
+            <p>Le verrou i-motion de Vachette permet de disposer d’un point de sécurité supplémentaire sans clé additionnelle. Ce verrou offre 2 possibilités d’ouverture: par lecture d’empreinte digitale ou par code. Doté d’une alimentation de secours, le verrou i-motion se ferme automatiquement après 5 secondes et bénéficie d’une alarme intégrée.</p>
+                                    <h2>Where ?</h2>
+            <p>Réseau Serruriers L’Expert Vachette </p>
+                                    <p class="commercialLink"><a href="http://www.vachette.fr/fr/site/Vachette/" target="_blank">http://www.vachette.fr/fr/site/Vachette/</a></p>
+                      </li>
+                    <li id="product_467" class="product">
+            <img src="/public/data/images/products/gallery/photo_467.png" />
+                        <h2>Who ?</h2>
+            <p>'Voulez-Vous...' est une gamme de cosmétiques intimes, proposant des articles comme des huiles chauffantes comestibles, lubrifiants, poudres, bougies de massage et baumes.  </p>
+                                    <h2>What ?</h2>
+            <p>Huile corporelle gourmande : 'Huile de la Tentation'(goût Margarita). Appliquez sans retenue cette huile composée d'ingrédients naturels sur les zones sensibles puis soufflez délicatement : une douce sensation de chaleur va s'emparer des zones effleurées. 
+<br/>Dégustez tendrement le corps de votre partenaire et laissez le charme agir...
+<br/>Sans Paraben, goût naturel, ne tâche pas, ne colle pas.</p>
+                                    <h2>Where ?</h2>
+            <p>www.voulez-vous-paris.com</p>
+                                    <p class="commercialLink"><a href="http://www.voulez-vous-paris.com" target="_blank">http://www.voulez-vous-paris.com</a></p>
+                      </li>
+                    <li id="product_434" class="product">
+            <img src="/public/data/images/products/gallery/photo_434.png" />
+                        <h2>Who ?</h2>
+            <p>Préparations pharmaceutiques, diététiques et produits de soins du corps élaborés sur la base de l’approche anthroposophique.</p>
+                                    <h2>What ?</h2>
+            <p>Ces soins anti-oxydants sont conçus pour accompagner le processus naturel de vieillissement cutané. Composés d’extraits de grenade bio et de millet bio, ils atténuent les signes de l’âge, régénèrent et raffermissent.
+<br/>Le parfum raffiné est une véritable invitation à l’éveil des sens...</p>
+                                    <h2>Where ?</h2>
+            <p>www.mademoiselle-bio.com</p>
+                                    <p class="commercialLink"><a href="http://www.weleda.fr" target="_blank">http://www.weleda.fr</a></p>
+                      </li>
+                    <li id="product_386" class="product">
+            <img src="/public/data/images/products/gallery/photo_386.png" />
+                        <h2>Who ?</h2>
+            <p>World Wild Men est une jeune marque française, conçue PAR des hommes POUR des hommes. 
+<br/>Bio et éthiques, les soins portent la mention Nature et Progrès.</p>
+                                    <h2>What ?</h2>
+            <p>Des produits bio, non gras, non collants, qui sentent bon et qui laissent la peau mate. Une gamme simple de produits sains, agréables à utiliser et indispensables !
+<br/>
+<br/>Gel nettoyant visage à la menthe poivrée et l'aloe vera.
+<br/>Soin toutes peaux à l'amande douce et au sésame.</p>
+                                    <h2>Where ?</h2>
+            <p>Le comptoir de l’homme Paris 06 / La pharmacie du Village Paris 04 // www.balthasard.com</p>
+                                    <p class="commercialLink"><a href="http://www.worldwildmen.com/" target="_blank">http://www.worldwildmen.com/</a></p>
+                      </li>
+                  </ul>
+      </div>
+    </div>
+  </div>
+  
+  
+<script type="text/javascript">
+(function(){
+  $('#loadingProducts').show();
+  $('#products').hide();
+  
+  function main(){
+    $('#loadingProducts').remove();
+    $('#products').show();
+    
+    var products = $('#products .product');
+    
+    var selectProduct = function(product){
+      products.removeClass('selected');
+      if(product) {
+        var id = $('a', product).attr('href').substring(1);
+        product.addClass('selected');
+        $('#product_'+id).addClass('selected');
+      }
+    };
+    
+    var lockProduct = function(product) {
+      var hasLock = product && product.hasClass('lock');
+      products.removeClass('lock');
+      if(product && !hasLock)
+        product.addClass('lock');
+      else
+        location.hash = 'all';
+      if(product) selectProduct(product);
+    }
+    
+    $('#products .navigation').accordion({
+      fillSpace: true,
+      change: function(e, obj){
+        lockProduct(null);
+        selectProduct(obj.newContent.find('.product:first'));
+      }
+    });
+    
+    $('a.productSelect').bind('mouseenter', function(){
+      if($('#products .product.lock').size()>0) return;
+      selectProduct($(this).parent('.product'));
+    });
+    
+    $('.product.lock a').live('click', function(e) {
+      e.preventDefault();
+      location.hash = 'all';
+    })
+    
+    selectProduct($('li.productTitle:visible:first'));
+    
+
+    $(window).hashchange(function(e){
+      var selected = !location.hash ? null : $('a[href='+location.hash+']').parent();
+      if(selected && !selected.is('.product')) selected = null;
+      lockProduct(selected);
+    });
+
+            $(window).hashchange();
+        
+    setTimeout(function(){
+      $('#products').addClass('transition-enabled');
+    }, 500);
+  };
+  
+  var imgs = $('#products .product img');
+  var nbImgs = imgs.size();
+  var i = 0;
+  var loading = $('#loadingProducts');
+  var updateLoader = function(){
+    if(!loading.size()) return;
+    loading.find('.percent').text( Math.floor(100*(i/nbImgs)) );
+    loading.find('.progressBar').css('width', 200*(i/nbImgs));
+  }
+  updateLoader();
+  
+  imgs.onImagesLoaded(function(){
+    ++i;
+    updateLoader();
+    if(i == nbImgs)
+      main();
+  });
+  
+}())
+</script>
+
+          </div>
+                            </div>
+      </div>
+    </div>
+    <footer>
+      &copy; Smart Store 2013 - follow us on <a href="http://twitter.com/smartofficial" target="_blank">twitter</a> / <a href="http://www.facebook.com/smartstore" target="_blank">facebook</a><br />
+      <a href="mailto:contact@smart-store.fr">contact@smart-store.fr</a><br/>
+			<a href="/public/data/presse.pdf">Presse</a>
+    </footer>
+              <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20103044-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+          </body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Smart Store - Home</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="Description" content="Smart Store, c'est une boutique purement dédiée à la découverte ! Venez y tester des produits de marques innovantes, originales et trendy." />
+        <meta name="copyright" content="Smart Store - toute reproduction ou utilisation d’un contenu de ce site sans l’accord prealable de smart store est interdit." />
+        <link rel="stylesheet" type="text/css" media="screen" href="/public/stylesheets/main.css" />
+        <link rel="stylesheet" type="text/css" href="/public/stylesheets/vader/jquery-ui-1.8.5.custom.css" charset="utf-8" ></link>
+        <link rel="stylesheet" type="text/css" href="/public/stylesheets/jquery.autocomplete.css" charset="utf-8" ></link>
+            <link rel="stylesheet" type="text/css" href="/public/stylesheets/nivo-slider.css" charset="utf-8" ></link>
+        <style>
+    #wrapper {
+      background: black url(/public/data/images/background/background_1340126151941.jpg) no-repeat center top;
+    }
+    </style>
+        <!--[if IE 7]>
+        <link rel="stylesheet" type="text/css" href="/public/stylesheets/ie7.css" charset="utf-8" ></link>
+        <![endif]-->
+        <!--[if IE 6]>
+        <link rel="stylesheet" type="text/css" href="/public/stylesheets/ie6.css" charset="utf-8" ></link>
+        <![endif]-->
+        <link rel="shortcut icon" type="image/png" href="/public/images/favicon.png" />
+        <script src="/public/javascripts/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+        <!--[if IE]>
+        <script src="/public/javascripts/ie_hacks.js" type="text/javascript" charset="utf-8"></script>
+        <![endif]-->
+        <script type="text/javascript" language="javascript"  src="/public/javascripts/swfobject/swfobject.js"></script>
+        <script type="text/javascript" language="javascript"  src="/public/javascripts/preloadImages.js"></script>
+        <script type="text/javascript" language="javascript"  src="/public/javascripts/jquery.autocomplete.min.js"></script>
+        <script type="text/javascript" language="javascript"  src="/public/javascripts/jquery-ui-1.8.5.custom.min.js"></script>
+        <script type="text/javascript" language="javascript"  src="/public/javascripts/jquery.ui.datepicker-fr.js"></script>
+        <script type="text/javascript" language="javascript"  src="/public/javascripts/smartstore/main.js"></script>
+            <script type="text/javascript" language="javascript"  src="/public/javascripts/jquery.nivo.slider.pack.js"></script>
+    <script type="text/javascript" language="javascript"  src="/public/javascripts/jquery-ui-1.8.5.custom.min.js"></script>
+    <script type="text/javascript">
+      console.log(document.cookie);
+      if (document.cookie.indexOf("intro=1")==-1) {
+        location.href = "/intro";
+      }
+      $.preLoadImages('/public/images/smart_store_header.png','/public/images/pub_place.png','/public/images/map.jpg','/public/images/metro_12.png','/public/images/rer_a.png','/public/images/keep.gif','/public/images/smart_store_logo.png','/public/images/products/ambiguous.png','/public/images/headphone.png','/public/images/goodfood.png','/public/images/come_on_board.png','/public/images/nav_icon_current.png','/public/images/nav_icon.png','/public/images/twice.png','/public/images/lettericon.gif','/public/images/twittericon.gif','/public/images/fbicon.gif','/public/images/heart.png');
+      $(window).load(function(){
+        var openloginbox = $('#openloginbox');
+        $(document).click(function(e){
+          var target = $(e.target);
+          if(target.is('#openloginbox .connect')) {
+            if(!openloginbox.hasClass('opened')) {
+              openloginbox.addClass('opened');
+              $('input[name=login]', openloginbox).focus();
+            }
+            else
+              openloginbox.removeClass('opened');
+            return false;
+          }
+          else if(openloginbox.hasClass('opened') && target.parents('#openloginbox').size()==0)
+            openloginbox.removeClass('opened');
+        });
+      });
+    </script>
+    <script type="text/javascript">
+var images = ["/public/data/images/gallery/overview/0000001_Sorry.jpg","/public/data/images/gallery/overview/000001.jpg","/public/data/images/gallery/overview/1.jpg","/public/data/images/gallery/overview/4.jpg","/public/data/images/gallery/overview/4a_554318n.jpg","/public/data/images/gallery/overview/6.jpg","/public/data/images/gallery/overview/An1.jpg","/public/data/images/gallery/overview/C.jpg","/public/data/images/gallery/overview/D.jpg","/public/data/images/gallery/gallery/A.jpg","/public/data/images/gallery/gallery/B2.jpg","/public/data/images/gallery/gallery/C.jpg","/public/data/images/gallery/gallery/D.jpg","/public/data/images/gallery/gallery/E.jpg","/public/data/images/gallery/gallery/E1.jpg","/public/data/images/gallery/gallery/F.jpg","/public/data/images/gallery/gallery/F1.jpg","/public/data/images/gallery/gallery/FA.jpg","/public/data/images/gallery/gallery/J.jpg","/public/data/images/gallery/gallery/K.jpg","/public/data/images/gallery/gallery/SMARTSTORE_19.jpg","/public/data/images/gallery/gallery/T.jpg","/public/data/images/gallery/gallery/U.jpg","/public/data/images/gallery/gallery/V.jpg","/public/data/images/gallery/gallery/W.jpg"];
+
+$.preLoadImages(images);
+$(document).ready(function() {
+	$('.nivoSlider img').show();
+  
+	$('#gallery-overview').nivoSlider({
+		pauseTime: 4000,
+    effect: 'sliceDown',
+		controlNav: false,
+		keyboardNav: false
+	});
+  
+	$('#gallery').nivoSlider({
+		pauseTime: 4000,
+    effect: 'fade',
+		directionNav: false,
+		keyboardNav: false,
+		pauseOnHover: false
+	});
+});
+</script>
+    </head>
+    <body>
+      
+
+    <div id="wrapper">
+      <div id="main">
+        <header>
+          <a href="index.html" style="display: block; z-index: 10; position: relative; width: 960px; height: 194px; cursor: pointer">
+          <object type="application/x-shockwave-flash" wmode="transparent" data="/public/flash/header.swf" width="960" height="194">
+            <param name="movie" value="/public/flash/header.swf" />
+            <img src="/public/images/smart_store_header.png" alt="" />
+          </object>
+        </a>
+        </header>
+        <nav>
+          <ul>
+                        <li>
+      <span class="navlink">Home</span>
+  </li>            <li>
+    <a class="navlink" href="/about">Say what ?</a>
+    </li>            <li>
+    <a class="navlink" href="/products">Produits</a>
+    </li>            <li>
+    <a class="navlink" href="/360">Visite 360&deg;</a>
+    </li>                        
+                        
+                      </ul>
+        </nav>
+        <div id="contentContainer" >
+                    					<div id="content">
+            
+
+	<div id="gallery-overview" class="nivoSlider">
+					<img src="/public/data/images/gallery/overview/0000001_Sorry.jpg" title="" alt=""  />
+					<img src="/public/data/images/gallery/overview/000001.jpg" title="" alt="" style="display: none;" />
+					<img src="/public/data/images/gallery/overview/1.jpg" title="" alt="" style="display: none;" />
+					<img src="/public/data/images/gallery/overview/4.jpg" title="" alt="" style="display: none;" />
+					<img src="/public/data/images/gallery/overview/4a_554318n.jpg" title="" alt="" style="display: none;" />
+					<img src="/public/data/images/gallery/overview/6.jpg" title="" alt="" style="display: none;" />
+					<img src="/public/data/images/gallery/overview/An1.jpg" title="" alt="" style="display: none;" />
+					<img src="/public/data/images/gallery/overview/C.jpg" title="" alt="" style="display: none;" />
+					<img src="/public/data/images/gallery/overview/D.jpg" title="" alt="" style="display: none;" />
+			</div>
+	
+	<div class="box white">
+		<h1>Say What ?</h1>
+		<div style="padding: 5px 0;">
+			<h2>Smart Store, c'est :</h2>
+			<p>Une boutique purement dédiée à la découverte&nbsp;! Venez y tester des produits de marques innovantes, originales et trendy. Vous avez ainsi la possibilité d’emporter chez vous 5 goodies par semaine (échantillons parfums/cosmétiques, boissons, snacking), et d’en tester d’autres sur place.</p>
+		  <p>Cerise sur le gâteau, vous pourrez également trouver des pièces rares - voire uniques - de créateurs insolites (fashion, art, design, music...) Tout cela est à vendre, alors gare aux coups de cœur&nbsp;!</p>
+		</div>
+		<p><a href="/about">En savoir +</a></p>
+	</div>
+	
+  <div>
+  
+	<div id="pubplace" class="box grey">
+    <img src="/public/data/images/ads.png" />
+    <span class="text">Ceci est un espace publicitaire intemporel.</span>
+	</div>
+	
+	<div id="welcomeInfos" class="box grey">
+		<h2 class="twice">Welcome</h2>
+		<div class="map">
+			<a target="_blank" href="http://maps.google.fr/maps?hl=fr&q=8%20RUE%20BLANCHE%2075009%20PARIS&um=1&ie=UTF-8&sa=N&tab=wl">
+				<img src="/public/images/map.jpg" />
+			</a>
+		</div>
+		<div class="infos">
+			<h3>Du Mardi au Vendredi</h3>
+			<span>12:00 - 19:30</span>
+			<h3>Le Samedi</h3>
+			<span>14:00 - 19:00</span>
+			<div class="detail">
+				<img src="/public/images/metro_12.gif" />
+				<h3>Metro</h3>
+				<span>Trinité - d'Estienne d'Orves</span>
+			</div>
+			<div>
+				<img src="/public/images/rer_a.gif" />
+				<h3>RER &nbsp;<span style="font-weight: normal; line-height: 35px;">Auber</span></h3>
+			</div>
+		</div>
+	</div>
+  
+  </div>
+	
+	<h1>Galerie Photos</h1>
+	
+	<div id="gallery" class="nivoSlider">
+					<img src="/public/data/images/gallery/gallery/A.jpg" alt=""  />
+					<img src="/public/data/images/gallery/gallery/B2.jpg" alt="" style="display: none;" />
+					<img src="/public/data/images/gallery/gallery/C.jpg" alt="" style="display: none;" />
+					<img src="/public/data/images/gallery/gallery/D.jpg" alt="" style="display: none;" />
+					<img src="/public/data/images/gallery/gallery/E.jpg" alt="" style="display: none;" />
+					<img src="/public/data/images/gallery/gallery/E1.jpg" alt="" style="display: none;" />
+					<img src="/public/data/images/gallery/gallery/F.jpg" alt="" style="display: none;" />
+					<img src="/public/data/images/gallery/gallery/F1.jpg" alt="" style="display: none;" />
+					<img src="/public/data/images/gallery/gallery/FA.jpg" alt="" style="display: none;" />
+					<img src="/public/data/images/gallery/gallery/J.jpg" alt="" style="display: none;" />
+					<img src="/public/data/images/gallery/gallery/K.jpg" alt="" style="display: none;" />
+					<img src="/public/data/images/gallery/gallery/SMARTSTORE_19.jpg" alt="" style="display: none;" />
+					<img src="/public/data/images/gallery/gallery/T.jpg" alt="" style="display: none;" />
+					<img src="/public/data/images/gallery/gallery/U.jpg" alt="" style="display: none;" />
+					<img src="/public/data/images/gallery/gallery/V.jpg" alt="" style="display: none;" />
+					<img src="/public/data/images/gallery/gallery/W.jpg" alt="" style="display: none;" />
+			</div>
+	
+	          </div>
+          <aside>
+                        		
+	<div class="socialLinks">
+    <img src="/public/images/keep.gif" style="float: left;" />
+    <a class="letter" href="mailto:contact@smart-store.fr"></a>
+    <a class="twitter" href="http://twitter.com/smartofficial" target="_blank"></a>
+    <a class="facebook" href="http://www.facebook.com/smartstore" target="_blank"></a>
+    <a class="blog" href="http://scraaatch.fr/" target="_blank"></a>
+  </div>
+		<div class="vcard box white">
+		<div><img class="org logo" src="/public/images/smart_store_logo.png" alt="Smart Store" /></div>
+		<div class="desc">Goodies / Surprises / Expériences</div>
+		<div class="adr">
+			<div class="street-address"><a target="_blank" href="http://maps.google.fr/maps?hl=fr&q=8%20RUE%20BLANCHE%2075009%20PARIS&um=1&ie=UTF-8&sa=N&tab=wl">8 rue blanche</a></div>
+			<div>
+				<span class="postal-code">75009</span> <span class="locality">Paris</span>, <span class="country-name">France</span>
+			</div>
+		</div>
+		<div class="tel">01 82 09 96 69</div>
+		<div><a class="email" href="mailto:contact@smart-store.fr">contact@smart-store.fr</a></div>
+	</div>
+			<div class="articleOfTheMonth box grey">
+		<h2 class="heart">Coup de coeur <br/>du mois</h2>
+		<div class="product">
+			<div class="photo">
+				<img src="/public/data/images/month_product.png" />
+			</div>
+			<div>
+				<h3 class="name">Ces Messieurs</h3>
+				<div class="detail">
+					Ces-messieurs, LA marque qui d&eacute;mocratise l&rsquo;accessoire masculin en tricot.
+				</div>
+				<div class="links">
+					<a class="link" href="products#541">+ Plus d'infos</a>
+				</div>
+			</div>
+		</div>
+	</div>
+		<div class="goodfood box grey">
+  <div class="image">
+    <img class="headphone" src="/public/images/headphone.png" />
+  </div>
+  <div>
+    <h2>Let the music play</h2>
+    <div>radio shows by <img class="goodfood" src="/public/images/goodfood.png" alt="GOOD FOOD" /></div>
+  </div>
+  <a target="_blank" href="http://www.goodfoodcollective.fr/radioshows/"></a>
+</div>
+				<div class="comeonboard box white">
+  <img src="/public/images/come_on_board.png" />
+  <div>
+    <h2>Come on board !</h2>
+    <span>Devenez membre Smart Store</span>
+  </div>
+  <a href="inscription"></a>
+</div>
+				
+<div class="twitter box">
+  <script src="http://widgets.twimg.com/j/2/widget.js"></script>
+  <script>
+  if(TWTR) {
+    new TWTR.Widget({
+      version: 2,
+      type: 'profile',
+      rpp: 4,
+      interval: 6000,
+      width: 280,
+      height: 300,
+      theme: {
+        shell: {
+          background: '#000000',
+          color: '#ffffff'
+        },
+        tweets: {
+          background: '#000000',
+          color: '#ffffff',
+          links: '#54d5e3'
+        }
+      },
+      features: {
+        scrollbar: false,
+        loop: false,
+        live: false,
+        hashtags: true,
+        timestamp: true,
+        avatars: false,
+        behavior: 'all'
+      }
+    }).render().setUser('smartofficial').start();
+  }
+  </script>
+</div>
+	          </aside>
+                  </div>
+      </div>
+    </div>
+    <footer>
+      &copy; Smart Store 2013 - follow us on <a href="http://twitter.com/smartofficial" target="_blank">twitter</a> / <a href="http://www.facebook.com/smartstore" target="_blank">facebook</a><br />
+      <a href="mailto:contact@smart-store.fr">contact@smart-store.fr</a><br/>
+			<a href="/public/data/presse.pdf">Presse</a>
+    </footer>
+              <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20103044-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+          </body>
+</html>

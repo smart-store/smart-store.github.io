@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Smart Store - Introduction</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="Description" content="Smart Store, c'est une boutique purement dédiée à la découverte ! Venez y tester des produits de marques innovantes, originales et trendy." />
+        <meta name="copyright" content="Smart Store - toute reproduction ou utilisation d’un contenu de ce site sans l’accord prealable de smart store est interdit." />
+        <link rel="stylesheet" type="text/css" media="screen" href="/public/stylesheets/main.css" />
+        <link rel="stylesheet" type="text/css" href="/public/stylesheets/vader/jquery-ui-1.8.5.custom.css" charset="utf-8" ></link>
+        <link rel="stylesheet" type="text/css" href="/public/stylesheets/jquery.autocomplete.css" charset="utf-8" ></link>
+                <!--[if IE 7]>
+        <link rel="stylesheet" type="text/css" href="/public/stylesheets/ie7.css" charset="utf-8" ></link>
+        <![endif]-->
+        <!--[if IE 6]>
+        <link rel="stylesheet" type="text/css" href="/public/stylesheets/ie6.css" charset="utf-8" ></link>
+        <![endif]-->
+        <link rel="shortcut icon" type="image/png" href="/public/images/favicon.png" />
+        <script type="text/javascript">
+          document.cookie = "intro=1; path=/";
+        </script>
+        <script src="/public/javascripts/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+        <!--[if IE]>
+        <script src="/public/javascripts/ie_hacks.js" type="text/javascript" charset="utf-8"></script>
+        <![endif]-->
+        <script type="text/javascript" language="javascript"  src="/public/javascripts/swfobject/swfobject.js"></script>
+        <script type="text/javascript" language="javascript"  src="/public/javascripts/preloadImages.js"></script>
+        <script type="text/javascript" language="javascript"  src="/public/javascripts/jquery.autocomplete.min.js"></script>
+        <script type="text/javascript" language="javascript"  src="/public/javascripts/jquery-ui-1.8.5.custom.min.js"></script>
+        <script type="text/javascript" language="javascript"  src="/public/javascripts/jquery.ui.datepicker-fr.js"></script>
+        <script type="text/javascript" language="javascript"  src="/public/javascripts/smartstore/main.js"></script>
+        <script type="text/javascript">
+          swfobject.embedSWF("/public/flash/animation.swf", "video", "720", "576", "9.0.0");
+        </script>
+    </head>
+    <body>
+      
+
+      <div id="intro">
+        <header>
+        <a href="/">Passer l'introduction</a>
+        </header>
+
+        <div id="video">
+          <video width="720" height="576" preload autoplay poster="/public/videos/intro.png" >
+            <source src="/public/videos/intro.webm" type="video/webm">
+            <source src="/public/videos/intro.ogv" type="video/ogg">
+            <source src="/public/videos/intro.mp4" type="video/mp4">
+            <object class="vjs-flash-fallback" type="application/x-shockwave-flash" width="720" height="576" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000">
+              <param value="/public/flash/animation.swf" name="movie">
+              <param value="high" name="quality">
+              <embed width="720" height="576" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" quality="high" src="/public/flash/animation.swf">
+            </object>
+          </video>
+          <script>
+            $('video').bind('ended', function(e){
+              window.location.pathname = "/";
+            })
+            if(navigator.userAgent.match('Firefox'))
+              $('video')[0].play();
+          </script>
+        </div>
+
+        <footer>
+          &copy; Smart Store 2010 - follow us on <a href="http://twitter.com/smartofficial" target="_blank">twitter</a> / <a href="http://www.facebook.com/smartstore" target="_blank">facebook</a><br />
+          <a href="mailto:contact@smart-store.fr">contact@smart-store.fr</a>
+        </footer>
+      </div>
+              <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20103044-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+          </body>
+</html>

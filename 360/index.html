@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Smart Store - Visite 360&deg;</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="Description" content="Smart Store, c'est une boutique purement dédiée à la découverte ! Venez y tester des produits de marques innovantes, originales et trendy." />
+        <meta name="copyright" content="Smart Store - toute reproduction ou utilisation d’un contenu de ce site sans l’accord prealable de smart store est interdit." />
+        <link rel="stylesheet" type="text/css" media="screen" href="/public/stylesheets/main.css?v=15" />
+        <link rel="stylesheet" type="text/css" href="/public/stylesheets/vader/jquery-ui-1.8.5.custom.css" charset="utf-8" ></link>
+        <link rel="stylesheet" type="text/css" href="/public/stylesheets/jquery.autocomplete.css" charset="utf-8" ></link>
+            <link rel="stylesheet" type="text/css" href="/public/stylesheets/nivo-slider.css" charset="utf-8" ></link>
+        <style>
+    #wrapper {
+      background: black url(/public/data/images/background/background_1340126151941.jpg) no-repeat center top;
+    }
+    </style>
+        <!--[if IE 7]>
+        <link rel="stylesheet" type="text/css" href="/public/stylesheets/ie7.css" charset="utf-8" ></link>
+        <![endif]-->
+        <!--[if IE 6]>
+        <link rel="stylesheet" type="text/css" href="/public/stylesheets/ie6.css" charset="utf-8" ></link>
+        <![endif]-->
+        <link rel="shortcut icon" type="image/png" href="/public/images/favicon.png" />
+        <script src="/public/javascripts/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+        <!--[if IE]>
+        <script src="/public/javascripts/ie_hacks.js" type="text/javascript" charset="utf-8"></script>
+        <![endif]-->
+        <script type="text/javascript" language="javascript"  src="/public/javascripts/swfobject/swfobject.js"></script>
+        <script type="text/javascript" language="javascript"  src="/public/javascripts/preloadImages.js"></script>
+        <script type="text/javascript" language="javascript"  src="/public/javascripts/jquery.autocomplete.min.js"></script>
+        <script type="text/javascript" language="javascript"  src="/public/javascripts/jquery-ui-1.8.5.custom.min.js"></script>
+        <script type="text/javascript" language="javascript"  src="/public/javascripts/jquery.ui.datepicker-fr.js"></script>
+        <script type="text/javascript" language="javascript"  src="/public/javascripts/smartstore/main.js"></script>
+            <script type="text/javascript" language="javascript"  src="/public/javascripts/jquery.nivo.slider.pack.js"></script>
+    <script type="text/javascript" language="javascript"  src="/public/javascripts/jquery-ui-1.8.5.custom.min.js"></script>
+    <script type="text/javascript">
+      $.preLoadImages('/public/images/smart_store_header.png','/public/images/pub_place.png','/public/images/map.jpg','/public/images/metro_12.png','/public/images/rer_a.png','/public/images/keep.gif','/public/images/smart_store_logo.png','/public/images/products/ambiguous.png','/public/images/headphone.png','/public/images/goodfood.png','/public/images/come_on_board.png','/public/images/nav_icon_current.png','/public/images/nav_icon.png','/public/images/twice.png','/public/images/lettericon.gif','/public/images/twittericon.gif','/public/images/fbicon.gif','/public/images/heart.png');
+      $(window).load(function(){
+        var openloginbox = $('#openloginbox');
+        $(document).click(function(e){
+          var target = $(e.target);
+          if(target.is('#openloginbox .connect')) {
+            if(!openloginbox.hasClass('opened')) {
+              openloginbox.addClass('opened');
+              $('input[name=login]', openloginbox).focus();
+            }
+            else
+              openloginbox.removeClass('opened');
+            return false;
+          }
+          else if(openloginbox.hasClass('opened') && target.parents('#openloginbox').size()==0)
+            openloginbox.removeClass('opened');
+        });
+      });
+    </script>
+        </head>
+    <body>
+      
+
+    <div id="wrapper">
+      <div id="main">
+        <header>
+          <a href="/" style="display: block; z-index: 10; position: relative; width: 960px; height: 194px; cursor: pointer">
+          <object type="application/x-shockwave-flash" wmode="transparent" data="/public/flash/header.swf" width="960" height="194">
+            <param name="movie" value="/public/flash/header.swf" />
+            <img src="/public/images/smart_store_header.png" alt="" />
+          </object>
+        </a>
+        </header>
+        <nav>
+          <ul>
+                        <li>
+    <a class="navlink" href="/">Home</a>
+    </li>            <li>
+    <a class="navlink" href="/about">Say what ?</a>
+    </li>            <li>
+    <a class="navlink" href="/products">Produits</a>
+    </li>            <li>
+      <span class="navlink">Visite 360&deg;</span>
+  </li>                       
+                        
+                      </ul>
+        </nav>
+        <div id="contentContainer" class="fullWidth">
+                    <div id="content" class="fullWidth">
+            
+<object type="application/x-shockwave-flash" data="smartstore360.swf" width="980" height="500"><param name="movie" value="smartstore360.swf" /><param name="allowFullScreen" value="true" /></object>
+          </div>
+                            </div>
+      </div>
+    </div>
+    <footer>
+      &copy; Smart Store 2013 - follow us on <a href="http://twitter.com/smartofficial" target="_blank">twitter</a> / <a href="http://www.facebook.com/smartstore" target="_blank">facebook</a><br />
+      <a href="mailto:contact@smart-store.fr">contact@smart-store.fr</a><br/>
+			<a href="/public/data/presse.pdf">Presse</a>
+    </footer>
+              <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20103044-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+          </body>
+</html>
